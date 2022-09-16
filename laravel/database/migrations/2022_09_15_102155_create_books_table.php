@@ -17,9 +17,9 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('title', 100);
             $table->text('description');
-            $table->string('url');
+            $table->string('url')->default('http://link.com');
             $table->integer('year');
-            $table->boolean('available');
+            $table->boolean('available')->default(0);
             $table->foreignIdFor(\App\Models\Author::class, 'author_id');
             $table->timestamps();
         });

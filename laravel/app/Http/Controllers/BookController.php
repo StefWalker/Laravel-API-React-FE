@@ -40,10 +40,10 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function ifAvailable()
+    public function ifAvailable(Book $book)
     {
         $where = [              // Search on the available books
-            'available' => 1,
+            'available' => $book->available,
         ];
         return BookResource::collection(Book::where($where)->paginate());
     }
